@@ -1,0 +1,44 @@
+package compi1;
+import java_cup.runtime.*;
+
+
+class Parser;
+
+terminal ID, NUM, COMMA, LLA, LLC, PCOMMA;
+
+non terminal arbol L, S;
+
+start with S;
+
+S::= LLA:lla L:l1 LLC:llc{: 
+		arbol s = new arbol("S");
+		s.addHijo(new arbol(lla.toString()));
+		s.addHijo(l1);
+		s.addHijo(new arbol(llc.toString()));
+		RESULT = s;
+	:};
+
+L ::= L:l1 PCOMMA:pcoma ID:id {:  
+		arbol l = new arbol("L");
+		l.addHijo(l1);
+		l.addHijo(new arbol(pcoma.toString()));
+		l.addHijo(new arbol(id.toString()));
+		RESULT = l;
+	 :}
+	|L:l1 PCOMMA:pcoma NUM:id {:  
+		arbol l = new arbol("L");
+		l.addHijo(l1);
+		l.addHijo(new arbol(pcoma.toString()));
+		l.addHijo(new arbol(id.toString()));
+		RESULT = l;
+	 :}
+	|ID:id{: 
+		arbol l = new arbol("L");
+		l.addHijo(new arbol(id.toString()));
+		RESULT = l;
+	 :}
+	|NUM:num{: 
+		arbol l = new arbol("L");
+		l.addHijo(new arbol(num.toString()));
+		RESULT = l;
+	 :};

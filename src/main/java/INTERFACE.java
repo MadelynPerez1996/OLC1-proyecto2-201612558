@@ -120,7 +120,7 @@ public class INTERFACE extends JFrame{
 		
 		public void actionPerformed(ActionEvent e) {
 			JFileChooser Abriendo = new JFileChooser();
-			FileNameExtensionFilter nombreArchivo = new FileNameExtensionFilter("Archivos .ss","ss");
+			FileNameExtensionFilter nombreArchivo = new FileNameExtensionFilter("Archivos .javañ","javañ");
 			Abriendo.setFileFilter(nombreArchivo);
 			int selection = Abriendo.showOpenDialog(null);
 			if(selection == JFileChooser.APPROVE_OPTION) {
@@ -148,13 +148,13 @@ public class INTERFACE extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JFileChooser Guardando = new JFileChooser();
-			FileNameExtensionFilter nombreArchivo = new FileNameExtensionFilter("Archivos .ss","ss");
+			FileNameExtensionFilter nombreArchivo = new FileNameExtensionFilter("Archivos .javañ","javañ");
 			Guardando.setFileFilter(nombreArchivo);
 			int selection = Guardando.showSaveDialog(null);
 			if(selection == JFileChooser.APPROVE_OPTION) {
 				try {
 					File FileSelected = Guardando.getSelectedFile();
-					NombreArchivo = FileSelected.toString() + ".ss";
+					NombreArchivo = FileSelected.toString() + ".javañ";
 					BufferedWriter bw = new BufferedWriter(new FileWriter(NombreArchivo));
 					String texto = archivo.getText();
 					bw.write(texto);
